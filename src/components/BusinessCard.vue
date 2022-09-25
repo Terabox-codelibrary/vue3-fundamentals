@@ -1,10 +1,10 @@
 <template>
-  <a-card hoverable style="width: 480px; height: 240px;">
-    <a-avatar src="https://joeschmoe.io/api/v1/male/张三"></a-avatar>
+  <a-card bordered hoverable style="width: 480px; height: 240px;">
+    <a-avatar size="large" :src="getAvatarUrl()"></a-avatar>
     <a-typography>
-      <h4>张三</h4>
-      <h5>系统开发部 部长</h5>
-      <h5>Tel. 090-1234-5678</h5>
+      <h4>{{ name }}</h4>
+      <h5>{{ department }} {{ position }}</h5>
+      <h5>Tel. {{ tel }}</h5>
     </a-typography>
   </a-card>
 </template>
@@ -12,10 +12,28 @@
 <script>
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'BusinessCard'
+  name: 'BusinessCard',
+  props: {
+    name: {
+      type: String
+    },
+    gender: {
+      type: String
+    },
+    department: {
+      type: String
+    },
+    position: {
+      type: String
+    },
+    tel: {
+      type: String
+    }
+  },
+  methods: {
+    getAvatarUrl () {
+      return `https://joeschmoe.io/api/v1/${this.gender}/${this.name}`
+    }
+  }
 })
 </script>
-
-<style scoped>
-
-</style>
