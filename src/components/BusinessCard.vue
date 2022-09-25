@@ -1,5 +1,5 @@
 <template>
-  <a-card bordered hoverable style="width: 360px">
+  <a-card bordered hoverable style="width: 360px" @click="handleClick(name)">
     <a-avatar size="large" :src="getAvatarUrl()"></a-avatar>
     <a-typography>
       <h4>{{ name }}</h4>
@@ -33,6 +33,9 @@ export default defineComponent({
   methods: {
     getAvatarUrl () {
       return `https://joeschmoe.io/api/v1/${this.gender}/${this.name}`
+    },
+    handleClick (name) {
+      console.log(`clicked on ${name}`)
     }
   }
 })
