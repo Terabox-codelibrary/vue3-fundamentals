@@ -1,5 +1,5 @@
 <template>
-  <a-card bordered hoverable style="width: 480px; height: 240px;">
+  <a-card bordered hoverable style="width: 360px">
     <a-avatar size="large" :src="getAvatarUrl()"></a-avatar>
     <a-typography>
       <h4>{{ name }}</h4>
