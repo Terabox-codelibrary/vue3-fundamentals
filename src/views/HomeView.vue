@@ -15,6 +15,7 @@
 <script>
 import BusinessCard from '@/components/BusinessCard'
 import { defineComponent } from 'vue'
+import api from '@/api'
 
 export default defineComponent({
   name: 'HomeView',
@@ -23,30 +24,12 @@ export default defineComponent({
   },
   data () {
     return {
-      members: [
-        {
-          name: 'Ava',
-          gender: 'female',
-          department: 'Sales',
-          position: 'Manager',
-          tel: '123-456-7890'
-        },
-        {
-          name: 'Ethan',
-          gender: 'male',
-          department: 'Research',
-          position: 'Manager',
-          tel: '123-456-7890'
-        },
-        {
-          name: 'Lucas',
-          gender: 'male',
-          department: 'Research',
-          position: 'Member',
-          tel: '123-456-7890'
-        }
-      ]
+      members: []
     }
+  },
+  async mounted () {
+    const memberResp = await api.memberApi.getMemberList()
+    this.members = JSON.parse(memberResp.data.data)
   }
 })
 </script>
