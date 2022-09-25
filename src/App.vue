@@ -1,9 +1,9 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <a-layout>
+    <a-layout-content>
+      <router-view />
+    </a-layout-content>
+  </a-layout>
 </template>
 
 <style lang="scss">
