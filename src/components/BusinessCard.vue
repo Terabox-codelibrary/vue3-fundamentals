@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { message } from 'ant-design-vue'
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'BusinessCard',
@@ -35,7 +36,7 @@ export default defineComponent({
       return `https://joeschmoe.io/api/v1/${this.gender}/${this.name}`
     },
     handleClick (name) {
-      console.log(`clicked on ${name}`)
+      message.info(`You clicked ${name}`)
     }
   }
 })
